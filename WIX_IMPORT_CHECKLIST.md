@@ -9,10 +9,14 @@ Deploy the server from this repo to a public HTTPS URL.
 Required base URL format:
 - `https://your-app-domain.com`
 
+If using Render, this is:
+- `https://<your-render-service>.onrender.com`
+
 After deploy, verify these URLs respond:
 - `GET https://your-app-domain.com/dashboard/connect`
 - `GET https://your-app-domain.com/dashboard/field-mapping`
 - `GET https://your-app-domain.com/api/hubspot-oauth/status`
+- `GET https://your-app-domain.com/health`
 
 ## 2) Set production environment variables
 

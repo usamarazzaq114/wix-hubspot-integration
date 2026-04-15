@@ -92,3 +92,23 @@ Use:
 - `wix/self-hosted-app-values.template.md`
 
 These files contain exact URL mappings and field values to configure the app in Wix Developer Center for installation on a Wix site.
+
+## Deploy on Render
+
+This repository includes `render.yaml` for Blueprint deploy.
+
+1. Open [Render Blueprint New](https://dashboard.render.com/blueprints/new).
+2. Connect GitHub and select this repo:
+   - `usamarazzaq114/wix-hubspot-integration`
+3. Render reads `render.yaml` automatically.
+4. In environment variables, set:
+   - `HUBSPOT_CLIENT_ID`
+   - `HUBSPOT_CLIENT_SECRET`
+   - `HUBSPOT_REDIRECT_URI` = `https://<your-render-domain>/api/hubspot-oauth/callback`
+5. Deploy.
+6. Verify:
+   - `https://<your-render-domain>/health`
+   - `https://<your-render-domain>/dashboard/connect`
+   - `https://<your-render-domain>/dashboard/field-mapping`
+
+After deploy, use the Render base URL in Wix using `WIX_IMPORT_CHECKLIST.md`.

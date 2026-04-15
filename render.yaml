@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: wix-hubspot-integration
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: APP_INSTANCE_ID
+        value: production-instance
+      - key: APP_API_TOKEN
+        generateValue: true
+      - key: APP_ENCRYPTION_SECRET
+        generateValue: true
+      - key: HUBSPOT_CLIENT_ID
+        sync: false
+      - key: HUBSPOT_CLIENT_SECRET
+        sync: false
+      - key: HUBSPOT_REDIRECT_URI
+        sync: false

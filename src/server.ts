@@ -28,6 +28,10 @@ const syncEngine = new SyncEngine(new HubSpotClient(instanceId), wixAdapter, ins
 app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/health", (_req, res) => {
+  res.json({ ok: true, service: "wix-hubspot-integration" });
+});
+
 app.get("/", (_req, res) => res.redirect("/dashboard/connect"));
 
 app.get("/dashboard/connect", (_req, res) => {
